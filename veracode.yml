@@ -1,3 +1,3 @@
 veracode_static_scan:
   use_custom_workflow: example-js-build
-  artifact_file: veracode-artifact.zip
+  artifact_file: artifact
