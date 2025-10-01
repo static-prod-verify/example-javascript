@@ -37,5 +37,6 @@ jobs:
         mkdir -p target/veracode && mv veracode-artifact.zip target/veracode
 
     - uses: actions/upload-artifact@v4
+      name: veracode-artifact
       with:
         path: target/veracode/veracode-artifact.zip
