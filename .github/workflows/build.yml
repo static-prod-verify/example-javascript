@@ -32,8 +32,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Create zip archive
-      run: zip -r veracode-artifact.zip . -x .git/**\* bin/**\* e2e/**\* tests/**\* node_modules/**\* *.pyd *.mwb *.exe *.dll *.bin *.png *.xml *.bat *.g2p *.gp4 *.wav *.jpg *.svg *.sfx *.prx *.sb *.nrm *.config *.ini *.pdf *.dat *.docx *.whl *.so *_arm64 *_armhf *_x64 *.xlsm *.sql
+      run: |
+        zip -r veracode-artifact.zip . -x .git/**\* bin/**\* e2e/**\* tests/**\* node_modules/**\* *.pyd *.mwb *.exe *.dll *.bin *.png *.xml *.bat *.g2p *.gp4 *.wav *.jpg *.svg *.sfx *.prx *.sb *.nrm *.config *.ini *.pdf *.dat *.docx *.whl *.so *_arm64 *_armhf *_x64 *.xlsm *.sql
+        mkdir target/veracode && mv veracode-artifact.zip target/veracode
 
     - uses: actions/upload-artifact@v4
       with:
-        path: veracode-artifact.zip
+        path: target/veracode/veracode-artifact.zip
