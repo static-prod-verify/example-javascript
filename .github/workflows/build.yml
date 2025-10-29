@@ -26,7 +26,7 @@ jobs:
           branch: ${{ github.event.client_payload.repository.branch }}
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(github.event.client_payload.user_config.build_runs_on) }}
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
